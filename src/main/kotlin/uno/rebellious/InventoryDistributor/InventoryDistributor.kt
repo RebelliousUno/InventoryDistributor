@@ -8,9 +8,9 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 import org.apache.logging.log4j.Logger
 import uno.rebellious.InventoryDistributor.proxy.CommonProxy
 
-@Mod(modid = InventoryDistributor.MOD_ID, name = InventoryDistributor.NAME, version = InventoryDistributor.VERSION, modLanguageAdapter = "net.shadowfacts.forgelin.KotlinAdapter")
+@Mod(modid = InventoryDistributor.MODID, name = InventoryDistributor.NAME, version = InventoryDistributor.VERSION, modLanguageAdapter = "net.shadowfacts.forgelin.KotlinAdapter")
 object InventoryDistributor {
-    const val MOD_ID = "inventorydistributor"
+    const val MODID = "inventorydistributor"
     const val NAME = "InventoryDistributor"
     const val VERSION = "0.0.1"
 

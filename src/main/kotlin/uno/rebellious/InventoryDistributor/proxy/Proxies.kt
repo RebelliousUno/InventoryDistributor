@@ -29,8 +29,7 @@ open class CommonProxy {
         @SubscribeEvent
         fun registerBlocks(event: RegistryEvent.Register<Block>) {
             InventoryDistributor.logger?.log(Level.INFO, "Registering Blocks")
-            val registry = event.registry
-            registry.register(BlockInventoryDistributor())
+            event.registry.register(Blocks.inventoryDistributor)
         }
 
         @JvmStatic
@@ -65,14 +64,17 @@ open class CommonProxy {
     }
 }
 
+@Mod.EventBusSubscriber
 class ServerProxy: CommonProxy()
 
+@Mod.EventBusSubscriber
 class ClientProxy: CommonProxy() {
     companion object {
 
+        @JvmStatic
         @SubscribeEvent
         fun registerModels(event: ModelRegistryEvent) {
-            Blocks.initModels()
+            Blocks.inventoryDistributor.initModel()
         }
     }
 }

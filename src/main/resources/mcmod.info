@@ -1,0 +1,15 @@
+[{
+	"modid": "inventorydistributor",
+	"name": "Inventory Distributor",
+	"description": "Inventory Distributor 1.12 and beyond!",
+	"version": "${version}",
+	"mcversion": "${mcversion}",
+	"url": "https://github.com/RebelliousUno/InventoryDistributor",
+	"updateUrl": "https://github.com/RebelliousUno/InventoryDistributor/raw/master/versions.json",
+	"authorList": ["RebelliousUno"],
+	"credits": "",
+	"logoFile": "",
+	"screenshots": [],
+	"dependencies": [],
+	"useDependencyInformation": true
+}]

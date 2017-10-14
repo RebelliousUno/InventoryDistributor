@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "result": {
+    "item": "inventorydistributor:distributor"
+  },
+  "pattern": [
+    "dtd",
+    "tgt",
+    "dtd"
+  ],
+  "key": {
+    "g": {
+      "item": "minecraft:glowstone"
+    },
+    "d": {
+      "item": "minecraft:glowstone_dust"
+    },
+    "t": {
+      "item": "minecraft:torch"
+    }
+  }
+}
