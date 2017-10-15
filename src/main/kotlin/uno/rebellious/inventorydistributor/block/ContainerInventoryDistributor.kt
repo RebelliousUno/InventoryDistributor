@@ -1,7 +1,6 @@
-package uno.rebellious.InventoryDistributor.block
+package uno.rebellious.inventorydistributor.block
 
 import net.minecraft.entity.player.EntityPlayer
-import net.minecraft.inventory.IInventory
 import net.minecraft.inventory.Container
 
 class ContainerInventoryDistributor : Container() {

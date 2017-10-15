@@ -1,4 +1,4 @@
-package uno.rebellious.InventoryDistributor.block
+package uno.rebellious.inventorydistributor.block
 
 import net.minecraft.block.Block
 import net.minecraft.block.ITileEntityProvider
@@ -10,7 +10,7 @@ import net.minecraft.tileentity.TileEntity
 import net.minecraft.world.World
 import net.minecraftforge.client.model.ModelLoader
 import org.apache.logging.log4j.Level
-import uno.rebellious.InventoryDistributor.InventoryDistributor
+import uno.rebellious.inventorydistributor.InventoryDistributor
 
 class BlockInventoryDistributor : Block(Material.CIRCUITS), ITileEntityProvider {
     init {

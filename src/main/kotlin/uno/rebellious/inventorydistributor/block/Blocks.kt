@@ -1,4 +1,4 @@
-package uno.rebellious.InventoryDistributor.block
+package uno.rebellious.inventorydistributor.block
 
 object Blocks {
     val inventoryDistributor: BlockInventoryDistributor = BlockInventoryDistributor()

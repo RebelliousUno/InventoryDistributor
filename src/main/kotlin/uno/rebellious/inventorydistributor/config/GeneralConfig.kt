@@ -1,4 +1,4 @@
-package uno.rebellious.InventoryDistributor.config
+package uno.rebellious.inventorydistributor.config
 
 import net.minecraftforge.common.config.Configuration
 

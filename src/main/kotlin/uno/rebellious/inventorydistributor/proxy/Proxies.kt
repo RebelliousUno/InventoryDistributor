@@ -1,4 +1,4 @@
-package uno.rebellious.InventoryDistributor.proxy
+package uno.rebellious.inventorydistributor.proxy
 
 import net.minecraft.block.Block
 import net.minecraft.item.Item
@@ -13,11 +13,10 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 import net.minecraftforge.fml.common.registry.GameRegistry
 import org.apache.logging.log4j.Level
-import uno.rebellious.InventoryDistributor.InventoryDistributor
-import uno.rebellious.InventoryDistributor.block.BlockInventoryDistributor
-import uno.rebellious.InventoryDistributor.block.Blocks
-import uno.rebellious.InventoryDistributor.block.TileEntityInventoryDistributor
-import uno.rebellious.InventoryDistributor.config.GeneralConfig
+import uno.rebellious.inventorydistributor.InventoryDistributor
+import uno.rebellious.inventorydistributor.block.Blocks
+import uno.rebellious.inventorydistributor.block.TileEntityInventoryDistributor
+import uno.rebellious.inventorydistributor.config.GeneralConfig
 import java.io.File
 
 @Mod.EventBusSubscriber
