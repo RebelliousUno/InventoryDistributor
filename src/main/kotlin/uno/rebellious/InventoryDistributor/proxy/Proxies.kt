@@ -16,6 +16,7 @@ import org.apache.logging.log4j.Level
 import uno.rebellious.InventoryDistributor.InventoryDistributor
 import uno.rebellious.InventoryDistributor.block.BlockInventoryDistributor
 import uno.rebellious.InventoryDistributor.block.Blocks
+import uno.rebellious.InventoryDistributor.block.TileEntityInventoryDistributor
 import uno.rebellious.InventoryDistributor.config.GeneralConfig
 import java.io.File
 
@@ -30,6 +31,7 @@ open class CommonProxy {
         fun registerBlocks(event: RegistryEvent.Register<Block>) {
             InventoryDistributor.logger?.log(Level.INFO, "Registering Blocks")
             event.registry.register(Blocks.inventoryDistributor)
+            GameRegistry.registerTileEntity(TileEntityInventoryDistributor::class.java, InventoryDistributor.MODID+ ":distributor")
         }
 
         @JvmStatic
