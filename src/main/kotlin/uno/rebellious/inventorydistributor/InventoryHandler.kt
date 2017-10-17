@@ -23,6 +23,7 @@ class InventoryHandler(val distributor: TileEntityInventoryDistributor) : IItemH
             if (spaceInSlot >= stack.count) {
                 if (!simulate)
                     stackInSlot.grow(stack.count)
+                distributor.markDirty()
                 return ItemStack.EMPTY
             }
             if (spaceInSlot < stack.count) {
@@ -31,11 +32,13 @@ class InventoryHandler(val distributor: TileEntityInventoryDistributor) : IItemH
                 if (!simulate) {
                     stackInSlot.grow(newStack.count)
                 }
+                distributor.markDirty()
                 return stackToAdd
             }
         }
         if (!simulate)
             invDistStacks[slot] = stack.copy()
+        distributor.markDirty()
         return ItemStack.EMPTY
     }
 
