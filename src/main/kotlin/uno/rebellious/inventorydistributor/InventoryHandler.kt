@@ -12,7 +12,6 @@ class InventoryHandler(val distributor: TileEntityInventoryDistributor) : IItemH
 
     override fun insertItem(slot: Int, stack: ItemStack, simulate: Boolean): ItemStack {
         if (stack.isEmpty) return ItemStack.EMPTY
-
         val stackInSlot = invDistStacks[slot]
 
         if (!stackInSlot.isEmpty) {
@@ -21,29 +20,23 @@ class InventoryHandler(val distributor: TileEntityInventoryDistributor) : IItemH
             }
 
             var spaceInSlot = Math.min(stack.maxStackSize, getSlotLimit(slot)) - stackInSlot.count
-
-            if (spaceInSlot)
-
-
-
-            if ( m < stack.count) {
-                var remainStack = stack.copy()
-                return if (!simulate) {
-                    var newStack = remainStack.splitStack(m)
-                    invDistStacks[slot].grow(newStack.count)
-                    remainStack
-                } else {
-                    remainStack.shrink(m)
-                    remainStack
-                }
-            } else {
+            if (spaceInSlot >= stack.count) {
                 if (!simulate)
-                    invDistStacks[slot].grow(stack.count)
+                    stackInSlot.grow(stack.count)
                 return ItemStack.EMPTY
             }
-        } else {
-
+            if (spaceInSlot < stack.count) {
+                val stackToAdd = stack.copy()
+                var newStack = stackToAdd.splitStack(spaceInSlot)
+                if (!simulate) {
+                    stackInSlot.grow(newStack.count)
+                }
+                return stackToAdd
+            }
         }
+        if (!simulate)
+            invDistStacks[slot] = stack.copy()
+        return ItemStack.EMPTY
     }
 
     override fun getStackInSlot(slot: Int): ItemStack {
