@@ -15,8 +15,8 @@ import net.minecraftforge.fml.common.registry.GameRegistry
 import org.apache.logging.log4j.Level
 import uno.rebellious.inventorydistributor.InventoryDistributor
 import uno.rebellious.inventorydistributor.block.Blocks
-import uno.rebellious.inventorydistributor.block.TileEntityInventoryDistributor
 import uno.rebellious.inventorydistributor.config.GeneralConfig
+import uno.rebellious.inventorydistributor.tile.TileEntityInventoryDistributor
 import java.io.File
 
 @Mod.EventBusSubscriber
@@ -30,7 +30,7 @@ open class CommonProxy {
         fun registerBlocks(event: RegistryEvent.Register<Block>) {
             InventoryDistributor.logger?.log(Level.INFO, "Registering Blocks")
             event.registry.register(Blocks.inventoryDistributor)
-            GameRegistry.registerTileEntity(TileEntityInventoryDistributor::class.java, InventoryDistributor.MODID+ ":distributor")
+            GameRegistry.registerTileEntity(TileEntityInventoryDistributor::class.java, InventoryDistributor.MODID + ":distributor")
         }
 
         @JvmStatic
@@ -66,10 +66,10 @@ open class CommonProxy {
 }
 
 @Mod.EventBusSubscriber
-class ServerProxy: CommonProxy()
+class ServerProxy : CommonProxy()
 
 @Mod.EventBusSubscriber
-class ClientProxy: CommonProxy() {
+class ClientProxy : CommonProxy() {
     companion object {
 
         @JvmStatic

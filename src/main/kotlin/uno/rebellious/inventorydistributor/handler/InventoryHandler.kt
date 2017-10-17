@@ -1,10 +1,9 @@
-package uno.rebellious.inventorydistributor
-
+package uno.rebellious.inventorydistributor.handler
 
 import net.minecraft.item.ItemStack
 import net.minecraftforge.items.IItemHandler
 import net.minecraftforge.items.ItemHandlerHelper
-import uno.rebellious.inventorydistributor.block.TileEntityInventoryDistributor
+import uno.rebellious.inventorydistributor.tile.TileEntityInventoryDistributor
 
 class InventoryHandler(val distributor: TileEntityInventoryDistributor) : IItemHandler {
 
@@ -57,5 +56,4 @@ class InventoryHandler(val distributor: TileEntityInventoryDistributor) : IItemH
     override fun extractItem(slot: Int, amount: Int, simulate: Boolean): ItemStack {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
-
 }
