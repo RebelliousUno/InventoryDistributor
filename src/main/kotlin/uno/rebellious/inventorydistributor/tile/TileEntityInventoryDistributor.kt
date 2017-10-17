@@ -2,7 +2,9 @@ package uno.rebellious.inventorydistributor.tile
 
 import net.minecraft.block.Block
 import net.minecraft.block.BlockContainer
+import net.minecraft.inventory.ItemStackHelper
 import net.minecraft.item.ItemStack
+import net.minecraft.nbt.NBTTagCompound
 import net.minecraft.tileentity.TileEntity
 import net.minecraft.util.EnumFacing
 import net.minecraft.util.ITickable
@@ -10,13 +12,27 @@ import net.minecraft.util.NonNullList
 import net.minecraftforge.common.capabilities.Capability
 import net.minecraftforge.items.CapabilityItemHandler
 import net.minecraftforge.items.IItemHandler
+import net.minecraftforge.items.ItemHandlerHelper
+import net.minecraftforge.items.ItemStackHandler
 import org.apache.logging.log4j.Level
 import uno.rebellious.inventorydistributor.InventoryDistributor
 import uno.rebellious.inventorydistributor.handler.InventoryHandler
 
 class TileEntityInventoryDistributor : TileEntity(), ITickable {
-    var invDistStacks: NonNullList<ItemStack> = NonNullList.withSize(5, ItemStack.EMPTY)
+    val inventorySize = 5
+    var invDistStacks: NonNullList<ItemStack> = NonNullList.withSize(inventorySize, ItemStack.EMPTY)
     val logger = InventoryDistributor.logger
+
+    override fun writeToNBT(compound: NBTTagCompound?): NBTTagCompound {
+        ItemStackHelper.saveAllItems(compound, invDistStacks)
+        return super.writeToNBT(compound)
+    }
+
+    override fun readFromNBT(compound: NBTTagCompound?) {
+        super.readFromNBT(compound)
+        invDistStacks = NonNullList.withSize(inventorySize, ItemStack.EMPTY)
+        ItemStackHelper.loadAllItems(compound, invDistStacks)
+    }
 
     override fun hasCapability(capability: Capability<*>, facing: EnumFacing?): Boolean {
         if (capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
