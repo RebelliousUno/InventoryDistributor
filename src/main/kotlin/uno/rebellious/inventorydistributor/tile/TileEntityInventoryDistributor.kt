@@ -34,6 +34,7 @@ class TileEntityInventoryDistributor : TileEntity(), ITickable {
     override fun update() {
         if (world.isRemote) return
         if (!hasItems()) return
+        invDistStacks.forEach { logger?.log(Level.INFO, "${it.displayName} : ${it.count}") }
         EnumFacing.VALUES
                 .filter { it != EnumFacing.UP }
                 .filter { isInventoryBlock(world.getBlockState(pos.offset(it)).block) }
@@ -49,7 +50,7 @@ class TileEntityInventoryDistributor : TileEntity(), ITickable {
         val numSlots = handler.slots
         val slotIds = 0..(numSlots - 1)
         slotIds.forEach { slotId ->
-            logger?.log(Level.INFO, "$slotId: ${handler.getStackInSlot(slotId).displayName}")
+            //logger?.log(Level.INFO, "$slotId: ${handler.getStackInSlot(slotId).displayName}")
         }
     }
 

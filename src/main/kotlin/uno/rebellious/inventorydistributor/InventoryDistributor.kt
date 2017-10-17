@@ -6,6 +6,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 import org.apache.logging.log4j.Logger
+
 import uno.rebellious.inventorydistributor.proxy.CommonProxy
 
 @Mod(modid = InventoryDistributor.MODID, name = InventoryDistributor.NAME, version = InventoryDistributor.VERSION, modLanguageAdapter = "net.shadowfacts.forgelin.KotlinAdapter")
@@ -17,7 +18,7 @@ object InventoryDistributor {
     @Mod.Instance
     var instance: InventoryDistributor? = null
 
-    @SidedProxy(clientSide = "uno.rebellious.InventoryDistributor.proxy.ClientProxy", serverSide = "uno.rebellious.InventoryDistributor.proxy.ServerProxy")
+    @SidedProxy(clientSide = "uno.rebellious.inventorydistributor.proxy.ClientProxy", serverSide = "uno.rebellious.inventorydistributor.proxy.ServerProxy")
     var proxy: CommonProxy? = null
 
     var logger: Logger? = null
